@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Calm Professional -->
+    <!-- Chosen Palette: Professional White & Slate -->
     <!-- Application Structure Plan: A single-page narrative portfolio with a sticky top navigation. The structure flows from a hero section, through an interactive career timeline, a skills showcase, a case study section with a chart, and a final section on personal profile/values. This structure was chosen to transform a linear slide deck into an engaging, explorable story that highlights key achievements and skills more effectively for a recruiter. -->
     <!-- Visualization & Content Choices: Career Path -> Goal: Show progression -> Viz: HTML/CSS vertical timeline -> Interaction: Click to expand details -> Justification: More narrative than a list. Key Achievement (Spreadsheet) -> Goal: Show impact -> Viz: Chart.js Bar Chart (Before/After Error Rate) -> Interaction: Animate on scroll -> Justification: Visually quantifies the success. Skills -> Goal: Showcase proficiency -> Viz: HTML/CSS cards with tags -> Interaction: Hover for tooltips on formulas -> Justification: Organizes skills cleanly and adds depth. -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
@@ -19,7 +19,7 @@
 
     <header id="navbar" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-xl font-bold text-gray-800">Gustavo Rodrigues</div>
+            <div class="text-xl font-bold text-gray-800">Gustavo O. Rodrigues</div>
             <div class="hidden md:flex space-x-8">
                 <a href="#jornada" class="nav-link font-medium text-gray-600">Jornada</a>
                 <a href="#habilidades" class="nav-link font-medium text-gray-600">Habilidades</a>
@@ -38,19 +38,19 @@
         </div>
     </header>
 
-    <main class="container mx-auto px-6 py-8 md:py-16">
+    <main class="container mx-auto px-6">
         
-        <section id="inicio" class="text-center py-16 md:py-24">
-            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">Gustavo de Oliveira Rodrigues</h1>
-            <p class="mt-4 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Profissional de Backoffice focado em melhoria contínua, resolução de problemas e otimização de processos para a melhor experiência do cliente.</p>
+        <section id="inicio" class="text-center flex flex-col justify-center items-center min-h-[70vh]">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold text-gray-900 leading-tight">Gustavo de Oliveira Rodrigues</h1>
+            <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Profissional de Backoffice, resolução de problemas e otimização de processos para a melhor experiência do cliente.</p>
         </section>
 
-        <section id="jornada" class="py-16">
-            <div class="text-center mb-12">
+        <section id="jornada" class="py-16 my-16 section-bg rounded-2xl">
+            <div class="text-center mb-12 px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Minha Jornada Profissional</h2>
                 <p class="mt-2 text-gray-600">Uma linha do tempo da minha evolução de carreira e principais responsabilidades.</p>
             </div>
-            <div class="relative max-w-3xl mx-auto">
+            <div class="relative max-w-3xl mx-auto px-6">
                 <div class="absolute left-1/2 w-0.5 h-full bg-gray-300 transform -translate-x-1/2"></div>
                 
                 <div class="relative mb-8 flex justify-between items-center w-full">
@@ -82,13 +82,13 @@
             </div>
         </section>
 
-        <section id="habilidades" class="py-16 bg-white rounded-2xl shadow-md">
-            <div class="text-center mb-12">
+        <section id="habilidades" class="py-16 my-16 section-bg rounded-2xl">
+            <div class="text-center mb-12 px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Habilidades e Conhecimentos</h2>
                 <p class="mt-2 text-gray-600">Ferramentas e competências que utilizo para gerar resultados.</p>
             </div>
-            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 px-6">
+                <div class="bg-white p-6 rounded-lg border border-gray-200 shadow">
                     <h3 class="text-xl font-bold text-gray-800">Excel e Google Sheets</h3>
                     <p class="text-gray-600 mt-2">Nível avançado na criação de dashboards, automações e análises complexas.</p>
                     <div class="mt-4 flex flex-wrap gap-2">
@@ -100,7 +100,7 @@
                         <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Fórmula SE</span>
                     </div>
                 </div>
-                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                <div class="bg-white p-6 rounded-lg border border-gray-200 shadow">
                     <h3 class="text-xl font-bold text-gray-800">Pacote Office</h3>
                     <p class="text-gray-600 mt-2">Familiaridade para criação de documentos, apresentações e relatórios.</p>
                      <div class="mt-4 flex flex-wrap gap-2">
@@ -111,12 +111,12 @@
             </div>
         </section>
 
-        <section id="projetos" class="py-16">
-            <div class="text-center mb-12">
+        <section id="projetos" class="py-16 my-16 section-bg rounded-2xl">
+            <div class="text-center mb-12 px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Projetos de Destaque</h2>
                 <p class="mt-2 text-gray-600">Exemplos práticos de como aplico minhas habilidades para resolver problemas.</p>
             </div>
-            <div class="space-y-12">
+            <div class="space-y-12 max-w-4xl mx-auto px-6">
                 <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
                     <div>
                         <span class="text-sm font-semibold text-blue-600 bg-blue-100 px-3 py-1 rounded-full">Otimização de Processo</span>
@@ -136,12 +136,12 @@
             </div>
         </section>
 
-        <section id="perfil" class="py-16">
-            <div class="text-center mb-12">
+        <section id="perfil" class="py-16 my-16 section-bg rounded-2xl">
+            <div class="text-center mb-12 px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Perfil e Autoconhecimento</h2>
                 <p class="mt-2 text-gray-600">Meus valores, competências comportamentais e o que me move.</p>
             </div>
-            <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+            <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 px-6">
                 <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
                     <h3 class="text-xl font-bold text-gray-800 mb-4">Perfil Profissional</h3>
                     <p class="text-gray-700 mb-2"><strong class="text-gray-900">Analítico:</strong> Gosto de investigar a causa raiz dos problemas, usar dados para entender o cenário e propor melhorias que tornem os fluxos mais eficientes.</p>
@@ -163,7 +163,7 @@
 
     </main>
 
-    <footer class="bg-gray-800 text-white text-center p-6 mt-16">
+    <footer class="bg-gray-800 text-white text-center p-6">
         <p>&copy; 2024 Gustavo de Oliveira Rodrigues. Criado com o objetivo de apresentação profissional.</p>
     </footer>
 
@@ -184,13 +184,13 @@
                 });
             });
             
-            const sections = document.querySelectorAll('section');
+            const sections = document.querySelectorAll('section[id]');
             const mainNavLinks = document.querySelectorAll('#navbar .nav-link');
 
             const options = {
                 root: null,
-                rootMargin: '0px',
-                threshold: 0.4
+                rootMargin: '-50% 0px -50% 0px',
+                threshold: 0
             };
 
             const observer = new IntersectionObserver((entries, observer) => {
@@ -214,4 +214,3 @@
 
 </body>
 </html>
-
