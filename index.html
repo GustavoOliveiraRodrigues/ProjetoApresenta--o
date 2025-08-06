@@ -1,214 +1,248 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Portfólio | Gustavo de Oliveira Rodrigues</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Professional White & Slate -->
-    <!-- Application Structure Plan: A single-page narrative portfolio with a sticky top navigation. The structure flows from a hero section, through an interactive career timeline, a skills showcase, a case study section with a chart, and a final section on personal profile/values. This structure was chosen to transform a linear slide deck into an engaging, explorable story that highlights key achievements and skills more effectively for a recruiter. -->
-    <!-- Visualization & Content Choices: Career Path -> Goal: Show progression -> Viz: HTML/CSS vertical timeline -> Interaction: Click to expand details -> Justification: More narrative than a list. Key Achievement (Spreadsheet) -> Goal: Show impact -> Viz: Chart.js Bar Chart (Before/After Error Rate) -> Interaction: Animate on scroll -> Justification: Visually quantifies the success. Skills -> Goal: Showcase proficiency -> Viz: HTML/CSS cards with tags -> Interaction: Hover for tooltips on formulas -> Justification: Organizes skills cleanly and adds depth. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-    <link rel="stylesheet" href="assets/css/estilo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+    <!-- Link para CSS externo -->
+    <link rel="stylesheet" href="assets/css/estilo.css" />
 </head>
 <body class="antialiased">
 
-    <header id="navbar" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+    <header id="navbar" class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-sm">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-xl font-bold text-gray-800">Gustavo O. Rodrigues</div>
+            <div class="text-xl font-bold text-gray-800" style="font-family: 'Playfair Display', serif;">G. O. Rodrigues</div>
             <div class="hidden md:flex space-x-8">
-                <a href="#jornada" class="nav-link font-medium text-gray-600">Jornada</a>
-                <a href="#habilidades" class="nav-link font-medium text-gray-600">Habilidades</a>
-                <a href="#projetos" class="nav-link font-medium text-gray-600">Projetos</a>
-                <a href="#perfil" class="nav-link font-medium text-gray-600">Perfil</a>
+                <a data-index="0" class="nav-link font-medium text-gray-600 active">Início</a>
+                <a data-index="1" class="nav-link font-medium text-gray-600">Jornada</a>
+                <a data-index="2" class="nav-link font-medium text-gray-600">Habilidades</a>
+                <a data-index="3" class="nav-link font-medium text-gray-600">Projetos</a>
+                <a data-index="4" class="nav-link font-medium text-gray-600">Perfil</a>
             </div>
-            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
         </nav>
-        <div id="mobile-menu" class="hidden md:hidden">
-            <a href="#jornada" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Jornada</a>
-            <a href="#habilidades" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Habilidades</a>
-            <a href="#projetos" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Projetos</a>
-            <a href="#perfil" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Perfil</a>
-        </div>
     </header>
 
-    <main class="container mx-auto px-6">
-        
-        <section id="inicio" class="text-center flex flex-col justify-center items-center min-h-[70vh]">
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold text-gray-900 leading-tight">Gustavo de Oliveira Rodrigues</h1>
-            <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Profissional de Backoffice, resolução de problemas e otimização de processos para a melhor experiência do cliente.</p>
-        </section>
-
-        <section id="jornada" class="py-16 my-16 section-bg rounded-2xl">
-            <div class="text-center mb-12 px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Minha Jornada Profissional</h2>
-                <p class="mt-2 text-gray-600">Uma linha do tempo da minha evolução de carreira e principais responsabilidades.</p>
-            </div>
-            <div class="relative max-w-3xl mx-auto px-6">
-                <div class="absolute left-1/2 w-0.5 h-full bg-gray-300 transform -translate-x-1/2"></div>
-                
-                <div class="relative mb-8 flex justify-between items-center w-full">
-                    <div class="w-5/12"></div>
-                    <div class="z-10 bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold">1</div>
-                    <div class="w-5/12 bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                        <h3 class="font-bold text-lg text-blue-600">Início no Magalu (Fiscal Aprendiz)</h3>
-                        <p class="text-sm text-gray-600 mt-2">Responsável pela emissão e recolhimento de impostos, garantindo o pagamento de guias em prazos rígidos e desenvolvendo alta responsabilidade.</p>
-                    </div>
-                </div>
-
-                <div class="relative mb-8 flex justify-between items-center w-full flex-row-reverse">
-                    <div class="w-5/12"></div>
-                    <div class="z-10 bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold">2</div>
-                    <div class="w-5/12 bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                        <h3 class="font-bold text-lg text-blue-600">Efetivação (Voz do Cliente)</h3>
-                        <p class="text-sm text-gray-600 mt-2">Atuei no atendimento direto ao cliente e participei ativamente da criação e melhoria de fluxos para pedidos de troca em massa.</p>
-                    </div>
-                </div>
-
-                <div class="relative mb-8 flex justify-between items-center w-full">
-                    <div class="w-5/12"></div>
-                    <div class="z-10 bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold">3</div>
-                    <div class="w-5/12 bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                        <h3 class="font-bold text-lg text-blue-600">Chegada ao BKO 3P</h3>
-                        <p class="text-sm text-gray-600 mt-2">Atuo até hoje com foco na resolução de problemas e melhoria contínua, buscando sempre a melhor solução para o cliente e para o negócio.</p>
-                    </div>
-                </div>
+    <div id="main-container">
+        <!-- Page 1: Início -->
+        <section id="inicio" class="page">
+            <div class="text-center">
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold text-gray-900 leading-tight" style="font-family: 'Playfair Display', serif;">
+                    Gustavo de Oliveira Rodrigues
+                </h1>
+                <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                    Profissional de Backoffice, resolução de problemas e otimização de processos para a melhor experiência do cliente.
+                </p>
             </div>
         </section>
 
-        <section id="habilidades" class="py-16 my-16 section-bg rounded-2xl">
-            <div class="text-center mb-12 px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Habilidades e Conhecimentos</h2>
-                <p class="mt-2 text-gray-600">Ferramentas e competências que utilizo para gerar resultados.</p>
-            </div>
-            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 px-6">
-                <div class="bg-white p-6 rounded-lg border border-gray-200 shadow">
-                    <h3 class="text-xl font-bold text-gray-800">Excel e Google Sheets</h3>
-                    <p class="text-gray-600 mt-2">Nível avançado na criação de dashboards, automações e análises complexas.</p>
-                    <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">PROCX / PROCV</span>
-                        <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">CONT.SE / SOMA.SE</span>
-                        <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Tabelas Dinâmicas</span>
-                        <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Gráficos</span>
-                        <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">IMPORTRANGE</span>
-                        <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Fórmula SE</span>
-                    </div>
+        <!-- Page 2: Jornada -->
+        <section id="jornada" class="page bg-slate-50">
+            <div class="w-full max-w-5xl">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Minha Jornada Profissional</h2>
+                    <p class="mt-2 text-gray-600">Uma linha do tempo da minha evolução de carreira.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg border border-gray-200 shadow">
-                    <h3 class="text-xl font-bold text-gray-800">Pacote Office</h3>
-                    <p class="text-gray-600 mt-2">Familiaridade para criação de documentos, apresentações e relatórios.</p>
-                     <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="bg-gray-200 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">Word</span>
-                        <span class="bg-gray-200 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">PowerPoint</span>
+                <div class="relative max-w-3xl mx-auto">
+                    <div class="absolute left-1/2 w-0.5 h-full bg-gray-300 transform -translate-x-1/2"></div>
+
+                    <div class="relative mb-8 flex justify-between items-center w-full">
+                        <div class="w-5/12"></div>
+                        <div class="z-10 bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold">1</div>
+                        <div class="w-5/12 bg-white p-6 rounded-lg shadow-lg border border-gray-200">
+                            <h3 class="font-bold text-lg text-blue-600">Início no Magalu (Fiscal Aprendiz)</h3>
+                            <p class="text-sm text-gray-600 mt-2">Responsável pela emissão e recolhimento de impostos, com prazos rígidos e alta responsabilidade.</p>
+                        </div>
                     </div>
+
+                    <div class="relative mb-8 flex justify-between items-center w-full flex-row-reverse">
+                        <div class="w-5/12"></div>
+                        <div class="z-10 bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold">2</div>
+                        <div class="w-5/12 bg-white p-6 rounded-lg shadow-lg border border-gray-200">
+                            <h3 class="font-bold text-lg text-blue-600">Efetivação (Voz do Cliente)</h3>
+                            <p class="text-sm text-gray-600 mt-2">Atuei no atendimento direto e participei da criação e melhoria de fluxos de troca ajudando diretamente minha liderança.</p>
+                        </div>
+                    </div>
+
+                    <div class="relative mb-8 flex justify-between items-center w-full">
+                        <div class="w-5/12"></div>
+                        <div class="z-10 bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold">3</div>
+                        <div class="w-5/12 bg-white p-6 rounded-lg shadow-lg border border-gray-200">
+                            <h3 class="font-bold text-lg text-blue-600">Chegada ao BKO 3P</h3>
+                            <p class="text-sm text-gray-600 mt-2">Foco na resolução de problemas e melhoria contínua para a melhor solução ao cliente.</p>
+                        </div>
+                    </div>
+
+                    <div class="relative mb-8 flex justify-between items-center w-full flex-row-reverse">
+                        <div class="w-5/12"></div>
+                        <div class="z-10 bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold">4</div>
+                        <div class="w-5/12 bg-white p-6 rounded-lg shadow-lg border border-gray-200">
+                            <h3 class="font-bold text-lg text-blue-600">Fluxo de erro de anúncio e fraude</h3>
+                            <p class="text-sm text-gray-600 mt-2">
+                                Onde atuo no atendimento em massa a clientes impactados por anúncios com informações incorretas (título, preço, descrição etc.). A ideia é antecipar o contato, evitando que cada cliente precise nos acionar individualmente, o que reduz o volume de atendimento e melhora a experiência do consumidor.
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <section id="projetos" class="py-16 my-16 section-bg rounded-2xl">
-            <div class="text-center mb-12 px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Projetos de Destaque</h2>
-                <p class="mt-2 text-gray-600">Exemplos práticos de como aplico minhas habilidades para resolver problemas.</p>
+        <!-- Page 3: Habilidades -->
+        <section id="habilidades" class="page">
+            <div class="w-full max-w-5xl">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Habilidades e Conhecimentos</h2>
+                    <p class="mt-2 text-gray-600">Ferramentas e competências que utilizo para gerar resultados.</p>
+                </div>
+                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+
+                    <!-- Caixa 1: Ferramentas e Fórmulas -->
+                    <div class="bg-slate-50 p-6 rounded-lg border border-gray-200 shadow">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Ferramentas e Fórmulas</h3>
+                        <p class="text-gray-600 mb-4">Competências em planilhas, BI e bancos de dados.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Excel Avançado</span>
+                            <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Google Sheets</span>
+                            <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Fórmulas (PROCX, SE)</span>
+                            <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Tabelas Dinâmicas</span>
+                            <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Dashboards Interativos</span>
+                            <span class="bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full">Power BI</span>
+                            <span class="bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full">BigQuery (SQL)</span>
+                            <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Automação com IMPORTRANGE</span>
+                        </div>
+                    </div>
+
+                    <!-- Caixa 2: Linguagens e Automação -->
+                    <div class="bg-slate-50 p-6 rounded-lg border border-gray-200 shadow">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Linguagens e Automação</h3>
+                        <p class="text-gray-600 mb-4">Programação e análise de dados para automação e otimização.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-yellow-100 text-yellow-800 text-sm font-medium px-3 py-1 rounded-full">Python</span>
+                            <span class="bg-yellow-100 text-yellow-800 text-sm font-medium px-3 py-1 rounded-full">Automação com Python</span>
+                            <span class="bg-yellow-100 text-yellow-800 text-sm font-medium px-3 py-1 rounded-full">Pandas (Análise de Dados)</span>
+                            <span class="bg-gray-200 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">Análise de Dados</span>
+                            <span class="bg-gray-200 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">Apresentações Profissionais</span>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <div class="space-y-12 max-w-4xl mx-auto px-6">
-                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
-                    <div>
+        </section>
+
+        <!-- Page 4: Projetos -->
+        <section id="projetos" class="page bg-slate-50">
+            <div class="w-full max-w-5xl">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Projetos de Destaque</h2>
+                    <p class="mt-2 text-gray-600">Exemplos práticos de como aplico minhas habilidades.</p>
+                </div>
+                <div class="space-y-8 max-w-4xl mx-auto">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
                         <span class="text-sm font-semibold text-blue-600 bg-blue-100 px-3 py-1 rounded-full">Otimização de Processo</span>
-                        <h3 class="text-2xl font-bold mt-4">Automação do Envio de Cupons</h3>
-                        <p class="mt-2 text-gray-600"><strong class="text-gray-800">O Problema:</strong> O processo de envio de cupons para clientes impactados por erros de anúncio era manual, dividido em duas planilhas, o que gerava erros e retrabalho.</p>
-                        <p class="mt-2 text-gray-600"><strong class="text-gray-800">A Solução:</strong> Propus e criei uma planilha integrada usando as fórmulas `IMPORTRANGE` e `SE`, que unificou a visualização dos dados em tempo real.</p>
-                        <p class="mt-2 text-gray-600"><strong class="text-green-600 font-semibold">O Impacto:</strong> A nova ferramenta eliminou os erros de envio, garantiu mais precisão e otimizou o tempo da equipe.</p>
+                        <h3 class="text-2xl font-bold mt-4">Envio de Cupons</h3>
+                        <p class="mt-2 text-gray-600"><strong class="text-gray-800">Solução:</strong> Criei uma planilha integrada com <code>IMPORTRANGE</code> e <code>SE</code> para unificar dados, eliminando erros de envio manual e otimizando o tempo da equipe.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                        <span class="text-sm font-semibold text-purple-600 bg-purple-100 px-3 py-1 rounded-full">Gestão e Análise</span>
+                        <h3 class="text-2xl font-bold mt-4">Apresentação para a Auditoria</h3>
+                        <p class="mt-2 text-gray-600"><strong class="text-gray-800">Ação:</strong> Estruturei dados e processos para justificar decisões e gastos da operação, resultando em avaliação positiva e na minha indicação como Destaque do Mês.</p>
                     </div>
                 </div>
-                 <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
-                    <span class="text-sm font-semibold text-purple-600 bg-purple-100 px-3 py-1 rounded-full">Gestão e Análise</span>
-                    <h3 class="text-2xl font-bold mt-4">Apresentação para a Auditoria</h3>
-                    <p class="mt-2 text-gray-600"><strong class="text-gray-800">O Desafio:</strong> Justificar os gastos e as decisões tomadas na frente de erro de anúncio para a equipe de auditoria interna, uma área de alta criticidade.</p>
-                    <p class="mt-2 text-gray-600"><strong class="text-gray-800">A Ação:</strong> Reuni, organizei e estruturei todos os dados e processos da operação. Criei uma apresentação clara e objetiva para defender a importância e a eficiência da frente.</p>
-                    <p class="mt-2 text-gray-600"><strong class="text-green-600 font-semibold">O Reconhecimento:</strong> O trabalho resultou em uma avaliação positiva da auditoria e me rendeu a indicação como Destaque do Mês.</p>
-                </div>
             </div>
         </section>
 
-        <section id="perfil" class="py-16 my-16 section-bg rounded-2xl">
-            <div class="text-center mb-12 px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Perfil e Autoconhecimento</h2>
-                <p class="mt-2 text-gray-600">Meus valores, competências comportamentais e o que me move.</p>
-            </div>
-            <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 px-6">
-                <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Perfil Profissional</h3>
-                    <p class="text-gray-700 mb-2"><strong class="text-gray-900">Analítico:</strong> Gosto de investigar a causa raiz dos problemas, usar dados para entender o cenário e propor melhorias que tornem os fluxos mais eficientes.</p>
-                    <p class="text-gray-700"><strong class="text-gray-900">Lida bem com pressão:</strong> Mantenho informações organizadas e comunicações claras para agilizar decisões, mesmo em cenários com prazos rígidos ou em contato com a alta liderança.</p>
+        <!-- Page 5: Perfil -->
+        <section id="perfil" class="page">
+            <div class="w-full max-w-6xl">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Perfil e Autoconhecimento</h2>
+                    <p class="mt-2 text-gray-600">Meus valores, competências e o que me move.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Autoconhecimento</h3>
-                    <p class="text-gray-700 mb-2"><strong class="text-green-600">Pontos Positivos:</strong> Sou curioso, proativo e tenho facilidade de aprendizado. Busco entender o fluxo completo das operações para tomar decisões mais embasadas.</p>
-                    <p class="text-gray-700"><strong class="text-orange-600">Ponto a Desenvolver:</strong> Tenho o hábito de assumir muitas demandas por curiosidade. Estou aprendendo a equilibrar e priorizar melhor para focar no que gera mais impacto.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Valores e Curiosidades</h3>
-                    <p class="text-gray-700 mb-2"><strong class="text-gray-900">Valores:</strong> Lealdade, Transparência e Ética.</p>
-                    <p class="text-gray-700 mb-2"><strong class="text-gray-900">Hobbies:</strong> Gosto de sair com amigos e jogar online, principalmente jogos de estratégia e mapas.</p>
-                    <p class="text-gray-700"><strong class="text-gray-900">Foco Pessoal:</strong> Dedicado ao desenvolvimento, acordo às 5h30 para ir à academia antes do trabalho.</p>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-slate-50 p-6 rounded-lg shadow-md border border-gray-200">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Perfil Profissional</h3>
+                        <p class="text-gray-700 mb-2"><strong class="text-gray-900">Analítico:</strong> Gosto de investigar a causa raiz dos problemas e usar dados para propor melhorias.</p>
+                        <p class="text-gray-700"><strong class="text-gray-900">Lida bem com pressão:</strong> Mantenho a clareza e organização para agilizar decisões.</p>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-lg shadow-md border border-gray-200">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Autoconhecimento</h3>
+                        <p class="text-gray-700 mb-2"><strong class="text-green-600">Pontos Positivos:</strong> Curioso, proativo e com facilidade de aprendizado.</p>
+                        <p class="text-gray-700"><strong class="text-orange-600">A Desenvolver:</strong> Aprendendo a equilibrar e priorizar demandas.</p>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-lg shadow-md border border-gray-200">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Valores e Hobbies</h3>
+                        <p class="text-gray-700 mb-2"><strong class="text-gray-900">Valores:</strong> Lealdade, Transparência e Ética.</p>
+                        <p class="text-gray-700"><strong class="text-gray-900">Hobbies:</strong> Jogos de estratégia e mapas, e sair com amigos.</p>
+                    </div>
                 </div>
             </div>
         </section>
+    </div>
 
-    </main>
-
-    <footer class="bg-gray-800 text-white text-center p-6">
-        <p>&copy; 2024 Gustavo de Oliveira Rodrigues. Criado com o objetivo de apresentação profissional.</p>
-    </footer>
+    <button id="prev-btn" class="nav-arrow left-4 md:left-8 hidden">
+        <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+    </button>
+    <button id="next-btn" class="nav-arrow right-4 md:right-8">
+        <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+    </button>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', function () {
-                mobileMenu.classList.toggle('hidden');
+            const mainContainer = document.getElementById('main-container');
+            const pages = document.querySelectorAll('.page');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pageCount = pages.length;
+            let currentPageIndex = 0;
+
+            function goToPage(index) {
+                if (index < 0 || index >= pageCount) return;
+                mainContainer.scrollLeft = index * window.innerWidth;
+                currentPageIndex = index;
+                updateUI();
+            }
+
+            function updateUI() {
+                prevBtn.classList.toggle('hidden', currentPageIndex === 0);
+                nextBtn.classList.toggle('hidden', currentPageIndex === pageCount - 1);
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (parseInt(link.dataset.index) === currentPageIndex) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            prevBtn.addEventListener('click', () => {
+                goToPage(currentPageIndex - 1);
             });
 
-            const navLinks = document.querySelectorAll('.nav-link, #mobile-menu a');
+            nextBtn.addEventListener('click', () => {
+                goToPage(currentPageIndex + 1);
+            });
+
             navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
+                link.addEventListener('click', (e) => {
+                    const index = parseInt(e.target.dataset.index);
+                    goToPage(index);
                 });
             });
-            
-            const sections = document.querySelectorAll('section[id]');
-            const mainNavLinks = document.querySelectorAll('#navbar .nav-link');
 
-            const options = {
-                root: null,
-                rootMargin: '-50% 0px -50% 0px',
-                threshold: 0
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        mainNavLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href').substring(1) === entry.target.id) {
-                                link.classList.add('active');
-                            }
-                        });
-                    }
-                });
-            }, options);
-
-            sections.forEach(section => {
-                observer.observe(section);
+            mainContainer.addEventListener('scroll', () => {
+                const index = Math.round(mainContainer.scrollLeft / window.innerWidth);
+                if (index !== currentPageIndex) {
+                    currentPageIndex = index;
+                    updateUI();
+                }
             });
+
+            updateUI();
         });
     </script>
 
