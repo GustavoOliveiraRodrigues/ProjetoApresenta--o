@@ -13,34 +13,7 @@
     <!-- Application Structure Plan: A single-page narrative portfolio with a sticky top navigation. The structure flows from a hero section, through an interactive career timeline, a skills showcase, a case study section with a chart, and a final section on personal profile/values. This structure was chosen to transform a linear slide deck into an engaging, explorable story that highlights key achievements and skills more effectively for a recruiter. -->
     <!-- Visualization & Content Choices: Career Path -> Goal: Show progression -> Viz: HTML/CSS vertical timeline -> Interaction: Click to expand details -> Justification: More narrative than a list. Key Achievement (Spreadsheet) -> Goal: Show impact -> Viz: Chart.js Bar Chart (Before/After Error Rate) -> Interaction: Animate on scroll -> Justification: Visually quantifies the success. Skills -> Goal: Showcase proficiency -> Viz: HTML/CSS cards with tags -> Interaction: Hover for tooltips on formulas -> Justification: Organizes skills cleanly and adds depth. -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F8F9FA;
-            color: #212529;
-        }
-        .nav-link {
-            position: relative;
-            transition: color 0.3s;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #007BFF;
-            transition: width 0.3s;
-        }
-        .nav-link.active, .nav-link:hover {
-            color: #007BFF;
-        }
-        .nav-link.active::after, .nav-link:hover::after {
-            width: 100%;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/estilo.css">
 </head>
 <body class="antialiased">
 
