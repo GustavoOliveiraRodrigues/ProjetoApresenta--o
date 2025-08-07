@@ -1,8 +1,21 @@
+:root {
+    --bg-dark: #0a0a0a;
+    --bg-card: #111111;
+    --text-primary: #e5e7eb;
+    --text-secondary: #9ca3af;
+    --accent-cyan: #06b6d4;
+    --border-color: #222222;
+}
+
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #FFFFFF;
-    color: #111827;
-    overflow: hidden; /* Prevent vertical scroll */
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    overflow: hidden; /* Impede a rolagem vertical */
+}
+
+h1, h2, h3 {
+    font-family: 'Roboto Mono', monospace;
 }
 
 #main-container {
@@ -12,12 +25,12 @@ body {
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 #main-container::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+    display: none;
 }
 
 .page {
@@ -31,32 +44,49 @@ body {
     justify-content: center;
     padding: 2rem;
     overflow-y: auto;
+    position: relative;
+}
+
+/* DEPOIS (para adicionar) */
+.page {
+    width: 100vw;
+    height: 100vh;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+}
+
+.page-title {
+    padding-top: 5rem; /* Espaço para o menu superior */
+    padding-bottom: 1.5rem;
+    flex-shrink: 0; /* Impede que o título encolha */
+}
+
+.page-scroll-content {
+    overflow-y: auto; /* Adiciona rolagem apenas a esta área */
+    width: 100%;
+    padding: 0 1rem; /* Espaçamento lateral */
+}
+
+#navbar {
+    background-color: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .nav-link {
     position: relative;
-    transition: color 0.3s;
+    transition: color 0.3s, text-shadow 0.3s;
     cursor: pointer;
 }
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -4px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #007BFF;
-    transition: width 0.3s;
-}
-
-.nav-link.active, .nav-link:hover {
-    color: #007BFF;
-}
-
-.nav-link.active::after, .nav-link:hover::after {
-    width: 100%;
+.nav-link:hover, .nav-link.active {
+    color: var(--accent-cyan);
+    text-shadow: 0 0 5px var(--accent-cyan);
 }
 
 .nav-arrow {
@@ -64,7 +94,8 @@ body {
     top: 50%;
     transform: translateY(-50%);
     z-index: 50;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(17, 17, 17, 0.7);
+    border: 1px solid var(--border-color);
     border-radius: 50%;
     width: 48px;
     height: 48px;
@@ -72,15 +103,60 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: opacity 0.3s, transform 0.3s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    backdrop-filter: blur(5px);
 }
 
 .nav-arrow:hover {
     transform: translateY(-50%) scale(1.1);
+    background-color: var(--accent-cyan);
+    border-color: var(--accent-cyan);
+}
+
+.nav-arrow:hover i {
+    color: var(--bg-dark);
 }
 
 .nav-arrow.hidden {
     opacity: 0;
     pointer-events: none;
+}
+
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
+}
+
+.tag {
+    background-color: rgba(6, 182, 212, 0.1);
+    color: var(--accent-cyan);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+}
+
+.cert-list {
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+/* Aplica o estilo de scrollbar customizado para ambas as listas */
+.cert-list::-webkit-scrollbar,
+.page-scroll-content::-webkit-scrollbar {
+    width: 5px;
+}
+
+.cert-list::-webkit-scrollbar-track,
+.page-scroll-content::-webkit-scrollbar-track {
+    background: var(--border-color);
+}
+
+.cert-list::-webkit-scrollbar-thumb,
+.page-scroll-content::-webkit-scrollbar-thumb {
+    background: var(--accent-cyan);
+    border-radius: 5px;
 }
